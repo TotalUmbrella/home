@@ -1,6 +1,18 @@
 time = 0;
 notes = "";
 currentState = "m1";
+//RUN ON START
+currentState = "m1";
+document.getElementById("m1").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
+document.getElementById("content").innerHTML = `
+    <div class="test2" > 
+        template literal
+        please work
+        <div class="test3">
+        </div>
+    </div>
+`
+//RUN ON START END
 //set element with id "texta1" to the value of notes on start
 function main(){
     time = new Date().toLocaleTimeString()
@@ -183,3 +195,4 @@ function handleChange(){
 setInterval(main, 500);
 main();
 onStart();
+m1();
