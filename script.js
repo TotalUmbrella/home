@@ -37,7 +37,14 @@ function main(){
     else {
         seconds1 = seconds;
     };
-
+    day = new Date().getDay();
+    day1 = dayCalc(day);
+    month = new Date().getMonth();
+    month1 = monthCalc(month);
+    dateM = new Date().getDate();
+    year = new Date().getFullYear();
+    dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
+    document.getElementById("mainDate").innerHTML = dateStr;
     time = hours1 + ":" + minutes1 + ":" + seconds1; 
     document.getElementById("clock").innerHTML = time;
 }
