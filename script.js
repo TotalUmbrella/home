@@ -4,18 +4,41 @@ currentState = "m1";
 //RUN ON START
 currentState = "m1";
 document.getElementById("m1").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
-document.getElementById("content").innerHTML = `
-    <div class="test2" > 
-        template literal
-        please work
-        <div class="test3">
-        </div>
-    </div>
-`
+//document.getElementById("content").innerHTML = `
+    //<div class="test2" > 
+        //template literal
+        //please work
+        //<div class="test3">
+        //</div>
+    //</div>
+//`
 //RUN ON START END
 //set element with id "texta1" to the value of notes on start
 function main(){
-    time = new Date().toLocaleTimeString()
+    hours = new Date().getHours();
+    if (hours.toString().length == 1){
+        hours1 = "0" + hours;
+    }
+    else{
+        hours1 = hours;
+    };
+    minutes = new Date().getMinutes();
+    if (minutes.toString().length == 1){
+        minutes1 = "0" + minutes;
+    }
+    else{
+        minutes1 = minutes;
+    }
+    ;
+    seconds = new Date().getSeconds();
+    if (seconds.toString().length == 1){
+        seconds1 = "0" + seconds;
+    }
+    else {
+        seconds1 = seconds;
+    };
+
+    time = hours1 + ":" + minutes1 + ":" + seconds1; 
     document.getElementById("clock").innerHTML = time;
 }
 function handleChange(){

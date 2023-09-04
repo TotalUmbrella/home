@@ -54,7 +54,7 @@
 }
 
 .backing1 {
-  height: 30svh;
+  height: 220px;
   width: 28svw;
   left: 20svw;
   top: 52svh;
@@ -69,7 +69,7 @@
 }
 
 .backing2 {
-  height: calc( 45svh + 10px );
+  height: calc( 15svh + 230px );
   width: 28svw;
   background-color: rgba(0, 0, 0, 0.306);
   display: flex;
@@ -84,7 +84,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  height: 42svh;
+  height: 92%;
   width: 26svw;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .menubar {
-    height: 20%;
+    height: 40px;
     width: 90%;
     background-color: rgba(119, 139, 143, 0.081);
     left: 30px; 
@@ -125,7 +125,7 @@
 }
 
 .content {
-    height: 57%;
+    height: 65%;
     width: 90%;
     background-color: rgba(119, 139, 143, 0.081);
     margin-top: 3%;
@@ -138,8 +138,8 @@
 }
 
 .testa {
-    height: 83%;
-    width: 11%;
+    height: 30px;
+    width: 32px;
     background-color: rgba(72, 92, 96, 0.261);
     border-style: solid;
     border-radius: 1px;
