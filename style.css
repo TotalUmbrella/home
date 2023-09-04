@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Nunito+Sans:opsz,wght@6..12,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Karla:ital,wght@0,200;0,300;1,800&family=Nunito+Sans:opsz,wght@6..12,200&family=Quicksand:wght@300;400;500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +54,7 @@
 }
 
 .backing1 {
-  height: 220px;
+  height: 33svh;
   width: 28svw;
   left: 20svw;
   top: 52svh;
@@ -69,7 +69,7 @@
 }
 
 .backing2 {
-  height: calc( 15svh + 230px );
+  height: calc( 48svh + 10px );
   width: 28svw;
   background-color: rgba(0, 0, 0, 0.306);
   display: flex;
@@ -109,7 +109,7 @@
 }
 
 .menubar {
-    height: 40px;
+    height: 6svh;
     width: 90%;
     background-color: rgba(119, 139, 143, 0.081);
     left: 30px; 
@@ -138,8 +138,8 @@
 }
 
 .testa {
-    height: 30px;
-    width: 32px;
+    height: 5svh;
+    width: 5svh;
     background-color: rgba(72, 92, 96, 0.261);
     border-style: solid;
     border-radius: 1px;
@@ -171,4 +171,110 @@
     position: relative;
     margin: 5px;
     left: 40px;
+}
+
+.mainPage {
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weatherStuff {
+  height: 100%;
+  width: 35%;
+  flex-direction: column;
+  background-color: rgba(0, 0, 255, 0.516);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+} 
+
+.dateStuff {
+  height: 100%;
+  width: 65%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.date1 {
+  height: 18%;
+  width: 94%;
+  margin-bottom: 4px;
+  background-color: rgba(55, 81, 81, 0.203);
+  border-radius: 10px;  
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: calc(1.4vh + 0.6vw);
+  letter-spacing: 0.1vw;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(168, 188, 235, 0.599);
+}
+
+.upcoming {
+  height: 65%;
+  width: 94%;
+  margin-bottom: 2px;
+  margin-top: 5px;
+  background-color: rgba(55, 81, 81, 0.203);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titlea {
+  height: 15%;
+  width: 95%;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgba(63, 82, 86, 0.216);
+  font-family: 'Quicksand', sans-serif;
+  font-size: calc(1.1vh + 0.25vw);
+  letter-spacing: 0.12vw;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(168, 213, 199, 0.599);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.e1 {
+  height: 20%;
+  width: 95%;
+  background-color: rgba(55, 81, 81, 0);
+  border-radius: 10px;
+  display: flex;
+  margin: 3px;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: calc(1.1vh + 0.25vw);
+  letter-spacing: 0.1vw;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(146, 186, 220, 0.412);
+}
+
+.line1 {
+  height: 1px;
+  width: 93%;
+  color: aqua;
+  border-style: solid;
+  border-color: rgba(168, 213, 199, 0.267);
+}
+.sideBracket {
+  border-style: solid;
+  height: 2px;
+  border-color: rgba(168, 213, 199, 0.129);
+  width: 6%;
+  margin-left: 6px;
+  margin-right: 6px;
 }
