@@ -53,6 +53,21 @@ function handleChange(){
     localStorage.setItem("notes", notes.value)
 }
 
+async function getWeatherData(){
+    fetch("http://api.weatherapi.com/v1/current.json?key=9a19b803380a47dc8ff11501230509&q=Perth", { //wohoo i love hardcoding
+    "method": "GET",
+    "headers": {
+    }
+    })
+    .then(response => {
+    console.log(response);
+    })
+    .then(data => {
+        temp = data.current.temp_c;
+        document.getElementById("temp").innerHTML = temp + "°";
+    });
+}
+
 //Menubar 
     function m1(){
         currentState = "m1";
@@ -286,5 +301,5 @@ function dayCalc(day){
 // call function f1 every 1 second
 setInterval(main, 500);
 main();
-onStart();
 m1();
+getWeatherData();
