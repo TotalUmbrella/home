@@ -94,15 +94,18 @@ async function updateWeatherData(){
     return response.json();
     })
     .then(data => {
-        temp = data.current.temp_c;
+        temp = Math.round(data.current.temp_c);
         document.getElementById("temp").innerHTML = temp + "°";
         document.getElementById("temp").style.color = getTempColour(temp);
-        mintemp = data.forecast.forecastDay[0].day.mintemp_c;
-        maxtemp = data.forecast.forecastDay[0].day.maxtemp_c;
+        mintemp = Math.floor(data.forecast.forecastday[0].day.mintemp_c);
+        maxtemp = Math.ceil(data.forecast.forecastday[0].day.maxtemp_c);
         document.getElementById("low").innerHTML = mintemp + "°";
         document.getElementById("low").style.color = getTempColour(mintemp);
         document.getElementById("high").innerHTML = maxtemp + "°";
         document.getElementById("high").style.color = getTempColour(maxtemp);
+        uv = data.current.uv;
+        humid = data.current.humidity;
+        //document.getElementById("extraTemp").innerHTML = "UV " + uv +"    " + humid + "%";
         // temp to colour
             //  <0
             //  rgba(205, 207, 225, 0.74);
@@ -132,6 +135,7 @@ async function updateWeatherData(){
             //  rgba(227, 203, 95, 0.347);
         //  document.getElementById("temp").style.color = "white";
     });
+
 }
 
 //Menubar 
