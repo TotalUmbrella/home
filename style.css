@@ -233,7 +233,7 @@
 }
 
 .titlea {
-  height: 15%;
+  height: 18%;
   width: 95%;
   margin-top: 5px;
   border-radius: 10px;
@@ -333,6 +333,12 @@
 
 .extraTemp {
   color: rgba(142, 164, 210, 0.637);
-  font-size: calc(1.5vh + 0.5vw);
+  font-size: calc(1.3vh + 0.4vw);
   font-family: 'Quicksand', sans-serif;
+}
+
+.houseIco {
+  margin-top: 3px;
+  width: 70%;
+  opacity: 0.6;
 }

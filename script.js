@@ -4,14 +4,49 @@ currentState = "m1";
 //RUN ON START
 currentState = "m1";
 document.getElementById("m1").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
-//document.getElementById("content").innerHTML = `
-    //<div class="test2" > 
-        //template literal
-        //please work
-        //<div class="test3">
-        //</div>
-    //</div>
-//`
+currentState = "m1";
+document.getElementById("content").innerHTML = `
+                <div class="mainPage">
+                  <div class="dateStuff">
+                    <div class="date1" id="mainDate">
+                      ~Mon, 22 Mar 2021~
+                    </div>
+                    <div class="upcoming">
+                      <div class="titlea">
+                        up next we have: 
+                      </div>
+                      <div class="e1">
+                        <hr class="sideBracket">25 Mar - This Doesnt<hr class="sideBracket">
+                      </div>
+                      <div class="e1">
+                        <hr class="sideBracket">25 Mar - Work yet<hr class="sideBracket">
+                      </div>
+                      <div class="e1">
+                        <hr class="sideBracket">25 Mar - But who cares<hr class="sideBracket">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="weatherStuff">
+                    <div class="temp">
+                     <div class="tempText" id="temp">
+
+                     </div>
+                     <div class="extraTemp" id="extraTemp">
+                        Light Rain
+                     </div>
+                    </div>
+                    <div class="range">
+                      <div class="low" id="low">
+                        10°  
+                      </div>
+                        |
+                      <div class="high" id="high">
+                        30°
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                `;
 //RUN ON START END
 //set element with id "texta1" to the value of notes on start
 function main(){
@@ -43,8 +78,10 @@ function main(){
     month1 = monthCalc(month);
     dateM = new Date().getDate();
     year = new Date().getFullYear();
-    dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
-    document.getElementById("mainDate").innerHTML = dateStr;
+    if (currentState=="m1"){
+        dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
+        document.getElementById("mainDate").innerHTML = dateStr;
+    };
     time = hours1 + ":" + minutes1 + ":" + seconds1; 
     document.getElementById("clock").innerHTML = time;
 }
@@ -103,8 +140,8 @@ async function updateWeatherData(){
         document.getElementById("low").style.color = getTempColour(mintemp);
         document.getElementById("high").innerHTML = maxtemp + "°";
         document.getElementById("high").style.color = getTempColour(maxtemp);
-        uv = data.current.uv;
-        humid = data.current.humidity;
+        condition = data.current.condition.text;
+        document.getElementById("extraTemp").innerHTML = condition;
         //document.getElementById("extraTemp").innerHTML = "UV " + uv +"    " + humid + "%";
         // temp to colour
             //  <0
@@ -165,6 +202,57 @@ async function updateWeatherData(){
         //clicked
         //background-color: rgba(68, 75, 75, 0.654);
         //border-color: rgba(170, 170, 170, 0.3);
+        document.getElementById("content").innerHTML = `
+            <div class="mainPage">
+                <div class="dateStuff">
+                <div class="date1" id="mainDate">
+                    ~Mon, 22 Mar 2021~
+                </div>
+                <div class="upcoming">
+                    <div class="titlea">
+                    up next we have: 
+                    </div>
+                    <div class="e1">
+                    <hr class="sideBracket">25 Mar - This Doesnt<hr class="sideBracket">
+                    </div>
+                    <div class="e1">
+                    <hr class="sideBracket">25 Mar - Work yet<hr class="sideBracket">
+                    </div>
+                    <div class="e1">
+                    <hr class="sideBracket">25 Mar - But who cares<hr class="sideBracket">
+                    </div>
+                </div>
+                </div>
+                <div class="weatherStuff">
+                <div class="temp">
+                    <div class="tempText" id="temp">
+                    25°
+                    </div>
+                    <div class="extraTemp" id="extraTemp">
+                    Light Rain
+                    </div>
+                </div>
+                <div class="range">
+                    <div class="low" id="low">
+                    10°  
+                    </div>
+                    |
+                    <div class="high" id="high">
+                    30°
+                    </div>
+                </div>
+                </div>
+            </div>
+        `
+        day = new Date().getDay();
+        day1 = dayCalc(day);
+        month = new Date().getMonth();
+        month1 = monthCalc(month);
+        dateM = new Date().getDate();
+        year = new Date().getFullYear();
+        dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
+        document.getElementById("mainDate").innerHTML = dateStr;
+        updateWeatherData();
         console.log("clicked")
     }
     function m2(){
@@ -187,7 +275,7 @@ async function updateWeatherData(){
         document.getElementById("m2").onmouseup=(() =>{
             document.getElementById("m2").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
-
+        document.getElementById("content").innerHTML = ``
         console.log("clicked")
     }
     function m3(){
@@ -210,7 +298,7 @@ async function updateWeatherData(){
         document.getElementById("m3").onmouseup=(() =>{
             document.getElementById("m3").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
-
+        document.getElementById("content").innerHTML = ``
         console.log("clicked")
     }
     function m4(){
@@ -232,7 +320,7 @@ async function updateWeatherData(){
         document.getElementById("m4").onmouseup=(() =>{
             document.getElementById("m4").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
-
+        document.getElementById("content").innerHTML = ``
         console.log("clicked")
     }
     function m5(){
@@ -254,7 +342,7 @@ async function updateWeatherData(){
         document.getElementById("m5").onmouseup=(() =>{
             document.getElementById("m5").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
-
+        document.getElementById("content").innerHTML = ``
         console.log("clicked")
     }
     function m6(){
@@ -277,7 +365,7 @@ async function updateWeatherData(){
         document.getElementById("m6").onmouseup=(() =>{
             document.getElementById("m6").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
-
+        document.getElementById("content").innerHTML = ``
         console.log("clicked")
     }
     function m7(){
@@ -300,7 +388,7 @@ async function updateWeatherData(){
         document.getElementById("m7").onmouseup=(() =>{
             document.getElementById("m7").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
-
+        document.getElementById("content").innerHTML = ``
         console.log("clicked")
     }
 //Menubar end
@@ -372,5 +460,4 @@ function dayCalc(day){
 setInterval(main, 500);
 setInterval(updateWeatherData, 900000); //15mins
 main();
-m1();
 updateWeatherData();
