@@ -121,7 +121,7 @@ function getTempColour(tempR){
 }
 
 async function updateWeatherData(){
-    fetch("http://api.weatherapi.com/v1/forecast.json?key=9a19b803380a47dc8ff11501230509&q=Perth", { //wohoo i love hardcoding
+    fetch("https://api.weatherapi.com/v1/forecast.json?key=9a19b803380a47dc8ff11501230509&q=Perth", { //wohoo i love hardcoding
     "method": "GET",
     "headers": {
     }
