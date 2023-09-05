@@ -53,8 +53,38 @@ function handleChange(){
     localStorage.setItem("notes", notes.value)
 }
 
-async function getWeatherData(){
-    fetch("http://api.weatherapi.com/v1/current.json?key=9a19b803380a47dc8ff11501230509&q=Perth", { //wohoo i love hardcoding
+function getTempColour(tempR){
+    if (tempR < 0){
+        return "rgba(205, 207, 225, 0.74)"
+    }
+    else if (tempR >= 0 && tempR < 10){
+        return "rgba(116, 112, 228, 0.468)"
+    }
+    else if (tempR >= 10 && tempR < 15){
+        return "rgba(145, 174, 228, 0.468)"
+    }
+    else if (tempR >= 15 && tempR < 20){
+        return "rgba(145, 214, 228, 0.468)"
+    }
+    else if (tempR >= 20 && tempR < 25){
+        return "rgba(146, 245, 227, 0.347)"
+    }
+    else if (tempR >= 25 && tempR < 30){
+        return "rgba(122, 230, 133, 0.347)"
+    }
+    else if (tempR >= 30 && tempR < 35){
+        return "rgba(139, 212, 90, 0.347)"
+    }
+    else if (tempR >= 35 && tempR < 40){
+        return "rgba(189, 227, 95, 0.347)"
+    }
+    else if (tempR >= 40){
+        return "rgba(227, 203, 95, 0.347)"
+    };
+}
+
+async function updateWeatherData(){
+    fetch("http://api.weatherapi.com/v1/forecast.json?key=9a19b803380a47dc8ff11501230509&q=Perth", { //wohoo i love hardcoding
     "method": "GET",
     "headers": {
     }
@@ -66,6 +96,41 @@ async function getWeatherData(){
     .then(data => {
         temp = data.current.temp_c;
         document.getElementById("temp").innerHTML = temp + "°";
+        document.getElementById("temp").style.color = getTempColour(temp);
+        mintemp = data.forecast.forecastDay[0].day.mintemp_c;
+        maxtemp = data.forecast.forecastDay[0].day.maxtemp_c;
+        document.getElementById("low").innerHTML = mintemp + "°";
+        document.getElementById("low").style.color = getTempColour(mintemp);
+        document.getElementById("high").innerHTML = maxtemp + "°";
+        document.getElementById("high").style.color = getTempColour(maxtemp);
+        // temp to colour
+            //  <0
+            //  rgba(205, 207, 225, 0.74);
+            
+            //  0-10
+            //  rgba(116, 112, 228, 0.468);
+
+            //  10-15
+            //  rgba(145, 174, 228, 0.468);
+
+            //  15-20
+            //  rgba(145, 214, 228, 0.468);
+
+            //  20-25
+            // rgba(146, 245, 227, 0.347);
+
+            //  25-30
+            //  rgba(122, 230, 133, 0.347);
+
+            //  30-35
+            //  rgba(139, 212, 90, 0.347);
+
+            //  35-40
+            //  rgba(189, 227, 95, 0.347);
+
+            //  40+
+            //  rgba(227, 203, 95, 0.347);
+        //  document.getElementById("temp").style.color = "white";
     });
 }
 
@@ -301,6 +366,7 @@ function dayCalc(day){
 
 // call function f1 every 1 second
 setInterval(main, 500);
+setInterval(updateWeatherData, 900000); //15mins
 main();
 m1();
-getWeatherData();
+updateWeatherData();

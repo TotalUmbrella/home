@@ -297,7 +297,7 @@
 
 .tempText {
   font-family: 'Montserrat', sans-serif;
-  color: rgba(142, 164, 210, 0.637);
+  color: rgba(205, 207, 225, 0.74) ;
   text-align: center; 
   font-size: calc(4vh + 1.5vw);
   font-weight: 500;
@@ -322,11 +322,17 @@
 .low {
   margin: 3px;
   color: rgba(142, 164, 210, 0.637);
+  font-size: calc(1.5vh + 0.5vw);
 }
 
 .high {
   margin: 3px;
   color: rgba(142, 164, 210, 0.637);
+  font-size: calc(1.5vh + 0.5vw);
 }
 
-.extraTemp {}
+.extraTemp {
+  color: rgba(142, 164, 210, 0.637);
+  font-size: calc(1.5vh + 0.5vw);
+  font-family: 'Quicksand', sans-serif;
+}
