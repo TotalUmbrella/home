@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Karla:ital,wght@0,200;0,300;1,800&family=Nunito+Sans:opsz,wght@6..12,200&family=Quicksand:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300&family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300&family=Montserrat:wght@200;400&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -186,10 +188,10 @@
   height: 100%;
   width: 35%;
   flex-direction: column;
-  background-color: rgba(0, 0, 255, 0.516);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 5px;
 
 } 
 
@@ -270,6 +272,7 @@
   border-style: solid;
   border-color: rgba(168, 213, 199, 0.267);
 }
+
 .sideBracket {
   border-style: solid;
   height: 2px;
@@ -278,3 +281,52 @@
   margin-left: 6px;
   margin-right: 6px;
 }
+
+.temp {
+  width: 90%;
+  height: 65%;
+  background-color: rgba(55, 81, 81, 0.203);
+  border-radius: 10px;
+  display: flex;
+  margin-top: 3px;
+  margin-bottom: 6px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tempText {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(142, 164, 210, 0.637);
+  text-align: center; 
+  font-size: calc(4vh + 1.5vw);
+  font-weight: 500;
+}
+
+.range {
+  width: 90%;
+  height: 18%;
+  margin: 5px;
+  background-color: rgba(55, 81, 81, 0.203);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(116, 138, 146, 0.301);
+  text-align: center; 
+  font-size: calc(1.5vh + 0.5vw);
+  font-weight: 500;
+}
+
+.low {
+  margin: 3px;
+  color: rgba(142, 164, 210, 0.637);
+}
+
+.high {
+  margin: 3px;
+  color: rgba(142, 164, 210, 0.637);
+}
+
+.extraTemp {}

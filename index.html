@@ -43,8 +43,22 @@
                     </div>
                   </div>
                   <div class="weatherStuff">
-                    <div class="temp" id="temp">
-                      30°C
+                    <div class="temp">
+                     <div class="tempText" id="temp">
+
+                     </div>
+                     <div class="extraTemp">
+                        amongoid
+                     </div>
+                    </div>
+                    <div class="range">
+                      <div class="low" id="low">
+                        10°  
+                      </div>
+                        |
+                      <div class="high" id="high">
+                        30°
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -88,11 +102,6 @@
 </body>
 <script src="script.js">
     
-</script>
-<script defer>
-    document.getElementById("texta1").value = localStorage.getItem("notes");
-    time = new Date().toLocaleTimeString()
-    document.getElementById("clock").innerHTML = time;
 </script>
 <style src="style.css">
 </style>

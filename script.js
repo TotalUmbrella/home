@@ -61,6 +61,7 @@ async function getWeatherData(){
     })
     .then(response => {
     console.log(response);
+    return response.json();
     })
     .then(data => {
         temp = data.current.temp_c;
