@@ -2,35 +2,156 @@ time = 0;
 notes = "";
 currentState = "m1";
 //RUN ON START
+index1 = 0;
 currentState = "m1";
+
 let events = [
-    [120,"Jan, 20","balls"],
-    [801,"Aug, 01", "tribunal"],
-    [320,"Mar, 20","among"],
-    [621,"Jun, 21","bigger"],
-    [1211,"Dec, 11", "minh is a poo"], 
-    [321,"Mar, 21", "gary woo"]
+    [120,"balls"],
+    [801,"tribunal"],
+    [906,"among"],
+    [621,"bigger"],
+    [907, "minh is a poo"], 
+    [321, "gary woo"]
 ]
 function getEvents(events1, num){
     eventsCopy = [...events1];
-    day2 = new Date().getDay();
+    date2 = new Date().getDate();
     month2 = new Date().getMonth();
-    combined = month2.toString() + day2.toString();
-    eventsCopy.push([(combined - 0),"balls", "NOONESHOULDWRITETHISLETSHOPENOONEWRITESTHIS"]);
-    eventsCopy.sort(function(a, b){return b[0] - a[0]});
+    if (date2 == 1){
+        month2 = month2 - 1;
+        if (month2 == 0){
+            month2 = 12;
+        }
+        if (month2 == 2){
+            date2 = 28;
+        }
+        else if (month2 ==2 && year % 4 == 0){
+            date2 = 29;
+        }
+        else if (month2 == 4 || month2 == 6 || month2 == 9 || month2 == 11){
+            date2 = 30;
+        }
+        else {
+            date2 = 31;
+        }
+    }
+    else {
+        date2 = date2 - 1;
+    }
+    if (date2.toString().length == 1) {
+        date2 = "0" + date2.toString();
+    }
+    else {
+        date2 = date2.toString();
+    }
+    combined = (month2+1).toString() + date2;
+    eventsCopy.push([(combined - 0), "NOONESHOULDWRITETHISLETSHOPENOONEWRITESTHIS"]);
+    eventsCopy.sort(function(a, b){return a[0] - b[0]});
     let index = eventsCopy.findIndex(function(item, i){
-        return item[2] == "NOONESHOULDWRITETHISLETSHOPENOONEWRITESTHIS";
+        return item[1] == "NOONESHOULDWRITETHISLETSHOPENOONEWRITESTHIS";
     });
     index1 = index + num 
-    if (index > eventsCopy.length){
-        index1 = index1 - eventsCopy.length
+    if ((index1 + 1 )> eventsCopy.length){
+        index1 = index1 - (eventsCopy.length)
     }
-    return eventsCopy[index+num];
+    return eventsCopy[index1];
 }
-console.log(events)
-console.log(getEvents(events, 1));
-console.log(getEvents(events, 2));
-console.log(getEvents(events, 3));
+function getDate1(arguement) {
+    //today
+        datet = new Date().getDate();
+        montht = new Date().getMonth() + 1;
+        datet2 = new Date().getDate();
+        montht2 = new Date().getMonth() + 1;
+        if (datet.toString().length == 1) {
+            datet = "0" + datet.toString();
+        }
+        else {
+            datet = datet.toString();
+        }
+        combinedt = (montht).toString() + datet;
+    //today
+    //("date:"+datet2)
+    //tomorrow
+        if (month2 == 2){
+            if (datet2 == 28){
+                datet2 = 1;
+                montht2 = montht2 + 1;
+            }
+            else {
+                datet2 = datet2 + 1;
+                montht2 = montht2;
+            }
+        }
+        else if (month2 ==2 && year % 4 == 0){
+            if (datet2 == 29){
+                datet2 = 1;
+                montht2 = montht2 + 1;
+            }
+            else {
+                datet2 = datet2 + 1;
+                montht2 = montht2;
+            }
+        }
+        else if (month2 == 4 || month2 == 6 || month2 == 9 || month2 == 11){
+            if (datet2 == 30){
+                datet2 = 1;
+                montht2 = montht2 + 1;
+            }
+            else {
+                datet2 = datet2 + 1;
+                montht2 = montht2;
+            }
+        }
+        else {
+            if (datet == 31){
+                datet2 = 1;
+                montht2 = montht2 + 1;
+            }
+            else {
+                datet2 = datet2 + 1;
+                montht2 = montht2;
+            }
+        }
+        //now at this point i thin kdatet2 and montht2 is the next day, so if we combine them all shall be dandy
+        //("date:"+datet2)
+        if (datet2.toString().length == 1) {
+            datet2 = "0" + datet2.toString();
+        }
+        else {
+            datet2 = datet2.toString();
+        }
+        combinedt2 = (montht2).toString() + datet2;
+        //(combinedt2)
+        //("date:"+datet2)
+        //("month:"+montht2)
+    //tomorrow
+    dateTotal = arguement[0];
+    if (dateTotal.toString().length == 3) {
+        month1 = dateTotal.toString().slice(0, 1);
+        day1 = dateTotal.toString().slice(1, 3);
+    }
+    else {
+        month1 = dateTotal.toString().slice(0, 2);
+        day1 = dateTotal.toString().slice(2, 4);
+    }
+    month2 = monthCalc(month1-0);
+    //(dateTotal);
+    //(combinedt);
+    //(combinedt2);
+    if (combinedt ==dateTotal.toString()){
+    
+        return "Today";
+    }
+    else if (combinedt2 == dateTotal.toString()){
+        return "Tmrw";
+    }
+    else {
+        return day1 + " " + month2;    
+    }
+}
+function getText1(armge) {
+    return armge[1];
+}
 document.getElementById("m1").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
 currentState = "m1";
 document.getElementById("content").innerHTML = `
@@ -43,13 +164,13 @@ document.getElementById("content").innerHTML = `
                       <div class="titlea">
                         up next we have: 
                       </div>
-                      <div class="e1">
+                      <div class="e1" id="first">
                         <hr class="sideBracket">25 Mar - This Doesnt<hr class="sideBracket">
                       </div>
-                      <div class="e1">
+                      <div class="e1" id="second">
                         <hr class="sideBracket">25 Mar - Work yet<hr class="sideBracket">
                       </div>
-                      <div class="e1">
+                      <div class="e1" id="third">
                         <hr class="sideBracket">25 Mar - But who cares<hr class="sideBracket">
                       </div>
                     </div>
@@ -102,7 +223,7 @@ function main(){
     };
     day = new Date().getDay();
     day1 = dayCalc(day);
-    month = new Date().getMonth();
+    month = new Date().getMonth() + 1;
     month1 = monthCalc(month);
     dateM = new Date().getDate();
     year = new Date().getFullYear();
@@ -113,6 +234,11 @@ function main(){
     time = hours1 + ":" + minutes1 + ":" + seconds1; 
     document.getElementById("clock").innerHTML = time;
 
+}
+if (currentState=="m1"){
+    document.getElementById("first").innerHTML =`<hr class="sideBracket">`+ getDate1(getEvents(events, 1)) + " - " + getText1(getEvents(events, 1))+ `<hr class="sideBracket">`;
+    document.getElementById("second").innerHTML =`<hr class="sideBracket">`+ getDate1(getEvents(events, 2)) + " - " + getText1(getEvents(events, 2))+ `<hr class="sideBracket">`;
+    document.getElementById("third").innerHTML =`<hr class="sideBracket">`+ getDate1(getEvents(events, 3)) + " - " + getText1(getEvents(events, 3))+ `<hr class="sideBracket">`;
 }
 function handleChange(){
     notes = document.getElementById("texta1")
@@ -156,7 +282,7 @@ async function updateWeatherData(){
     }
     })
     .then(response => {
-    console.log(response);
+    //(response);
     return response.json();
     })
     .then(data => {
@@ -275,14 +401,14 @@ async function updateWeatherData(){
         `
         day = new Date().getDay();
         day1 = dayCalc(day);
-        month = new Date().getMonth();
+        month = new Date().getMonth() + 1;
         month1 = monthCalc(month);
         dateM = new Date().getDate();
         year = new Date().getFullYear();
         dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
         document.getElementById("mainDate").innerHTML = dateStr;
         updateWeatherData();
-        console.log("clicked")
+        //("clicked")
     }
     function m2(){
         currentState = "m2";
@@ -305,7 +431,7 @@ async function updateWeatherData(){
             document.getElementById("m2").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
-        console.log("clicked")
+        //("clicked")
     }
     function m3(){
         currentState = "m3";
@@ -328,7 +454,7 @@ async function updateWeatherData(){
             document.getElementById("m3").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
-        console.log("clicked")
+        //("clicked")
     }
     function m4(){
         currentState = "m4";
@@ -350,7 +476,7 @@ async function updateWeatherData(){
             document.getElementById("m4").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
-        console.log("clicked")
+        //("clicked")
     }
     function m5(){
         currentState = "m5";
@@ -372,7 +498,7 @@ async function updateWeatherData(){
             document.getElementById("m5").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
-        console.log("clicked")
+        //("clicked")
     }
     function m6(){
         currentState = "m6";
@@ -395,7 +521,7 @@ async function updateWeatherData(){
             document.getElementById("m6").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
-        console.log("clicked")
+        //("clicked")
     }
     function m7(){
         currentState = "m7";
@@ -418,7 +544,7 @@ async function updateWeatherData(){
             document.getElementById("m7").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
-        console.log("clicked")
+        //("clicked")
     }
 //Menubar end
 //MonthCalc
@@ -490,3 +616,13 @@ setInterval(main, 500);
 setInterval(updateWeatherData, 900000); //15mins
 main();
 updateWeatherData();
+    day = new Date().getDay();
+    day1 = dayCalc(day);
+    month = new Date().getMonth() + 1;
+    month1 = monthCalc(month);
+    dateM = new Date().getDate();
+    year = new Date().getFullYear();
+    if (currentState=="m1"){
+        dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
+        document.getElementById("mainDate").innerHTML = dateStr;
+    };
