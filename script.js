@@ -3,6 +3,34 @@ notes = "";
 currentState = "m1";
 //RUN ON START
 currentState = "m1";
+let events = [
+    [120,"Jan, 20","balls"],
+    [801,"Aug, 01", "tribunal"],
+    [320,"Mar, 20","among"],
+    [621,"Jun, 21","bigger"],
+    [1211,"Dec, 11", "minh is a poo"], 
+    [321,"Mar, 21", "gary woo"]
+]
+function getEvents(events1, num){
+    eventsCopy = [...events1];
+    day2 = new Date().getDay();
+    month2 = new Date().getMonth();
+    combined = month2.toString() + day2.toString();
+    eventsCopy.push([(combined - 0),"balls", "NOONESHOULDWRITETHISLETSHOPENOONEWRITESTHIS"]);
+    eventsCopy.sort(function(a, b){return b[0] - a[0]});
+    let index = eventsCopy.findIndex(function(item, i){
+        return item[2] == "NOONESHOULDWRITETHISLETSHOPENOONEWRITESTHIS";
+    });
+    index1 = index + num 
+    if (index > eventsCopy.length){
+        index1 = index1 - eventsCopy.length
+    }
+    return eventsCopy[index+num];
+}
+console.log(events)
+console.log(getEvents(events, 1));
+console.log(getEvents(events, 2));
+console.log(getEvents(events, 3));
 document.getElementById("m1").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
 currentState = "m1";
 document.getElementById("content").innerHTML = `
@@ -37,11 +65,11 @@ document.getElementById("content").innerHTML = `
                     </div>
                     <div class="range">
                       <div class="low" id="low">
-                        10°  
+                        15°  
                       </div>
                         |
                       <div class="high" id="high">
-                        30°
+                        20°
                       </div>
                     </div>
                   </div>
@@ -84,6 +112,7 @@ function main(){
     };
     time = hours1 + ":" + minutes1 + ":" + seconds1; 
     document.getElementById("clock").innerHTML = time;
+
 }
 function handleChange(){
     notes = document.getElementById("texta1")
@@ -135,7 +164,7 @@ async function updateWeatherData(){
         document.getElementById("temp").innerHTML = temp + "°";
         document.getElementById("temp").style.color = getTempColour(temp);
         mintemp = Math.floor(data.forecast.forecastday[0].day.mintemp_c);
-        maxtemp = Math.ceil(data.forecast.forecastday[0].day.maxtemp_c);
+        maxtemp = Math.ceil(data.forecast.forecastday[0].day.maxtemp_c) + 1;
         document.getElementById("low").innerHTML = mintemp + "°";
         document.getElementById("low").style.color = getTempColour(mintemp);
         document.getElementById("high").innerHTML = maxtemp + "°";
@@ -226,7 +255,7 @@ async function updateWeatherData(){
                 <div class="weatherStuff">
                 <div class="temp">
                     <div class="tempText" id="temp">
-                    25°
+                    18°
                     </div>
                     <div class="extraTemp" id="extraTemp">
                     Light Rain
