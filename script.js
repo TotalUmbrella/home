@@ -1,6 +1,6 @@
 time = 0;
 notes = "";
-currentState = "m1";
+
 //RUN ON START
 index1 = 0;
 currentState = "m1";
@@ -293,6 +293,12 @@ async function updateWeatherData(){
         maxtemp = Math.ceil(data.forecast.forecastday[0].day.maxtemp_c) + 1;
         document.getElementById("low").innerHTML = mintemp + "°";
         document.getElementById("low").style.color = getTempColour(mintemp);
+        if (temp > maxtemp){
+            maxtemp = temp;
+        }
+        if (temp >mintemp){
+            mintemp = temp;
+        }
         document.getElementById("high").innerHTML = maxtemp + "°";
         document.getElementById("high").style.color = getTempColour(maxtemp);
         condition = data.current.condition.text;
