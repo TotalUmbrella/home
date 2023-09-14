@@ -6,12 +6,12 @@ index1 = 0;
 currentState = "m1";
 
 let events = [
-    [120,"balls"],
-    [801,"tribunal"],
-    [906,"among"],
-    [621,"bigger"],
-    [907, "minh is a poo"], 
-    [321, "gary woo"]
+    [120,"a"],
+    [801,"b"],
+    [906,"c"],
+    [621,"d"],
+    [907, "e"], 
+    [321, "f"]
 ]
 function getEvents(events1, num){
     eventsCopy = [...events1];
