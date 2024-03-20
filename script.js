@@ -366,45 +366,46 @@ async function updateWeatherData(){
         document.getElementById("content").innerHTML = `
             <div class="mainPage">
                 <div class="dateStuff">
-                <div class="date1" id="mainDate">
-                    ~Mon, 22 Mar 2021~
-                </div>
+                    <div class="date1" id="mainDate">
+                        ~Mon, 22 Mar 2021~
+                    </div>
                 <div class="upcoming">
                     <div class="titlea">
                     up next we have: 
                     </div>
-                    <div class="e1">
+                    <div class="e1" id="first">
                     <hr class="sideBracket">25 Mar - This Doesnt<hr class="sideBracket">
                     </div>
-                    <div class="e1">
+                    <div class="e1" id="second">
                     <hr class="sideBracket">25 Mar - Work yet<hr class="sideBracket">
                     </div>
-                    <div class="e1">
+                    <div class="e1" id="third">
                     <hr class="sideBracket">25 Mar - But who cares<hr class="sideBracket">
                     </div>
                 </div>
                 </div>
                 <div class="weatherStuff">
                 <div class="temp">
-                    <div class="tempText" id="temp">
-                    18°
-                    </div>
-                    <div class="extraTemp" id="extraTemp">
+                <div class="tempText" id="temp">
+
+                </div>
+                <div class="extraTemp" id="extraTemp">
                     Light Rain
-                    </div>
+                </div>
                 </div>
                 <div class="range">
                     <div class="low" id="low">
-                    10°  
+                    15°  
                     </div>
                     |
                     <div class="high" id="high">
-                    30°
+                    20°
                     </div>
                 </div>
                 </div>
             </div>
         `
+        console.log("updated2")
         day = new Date().getDay();
         day1 = dayCalc(day);
         month = new Date().getMonth() + 1;
@@ -413,7 +414,11 @@ async function updateWeatherData(){
         year = new Date().getFullYear();
         dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
         document.getElementById("mainDate").innerHTML = dateStr;
+        document.getElementById("first").innerHTML =`<hr class="sideBracket">`+ getDate1(getEvents(events, 1)) + " - " + getText1(getEvents(events, 1))+ `<hr class="sideBracket">`;
+        document.getElementById("second").innerHTML =`<hr class="sideBracket">`+ getDate1(getEvents(events, 2)) + " - " + getText1(getEvents(events, 2))+ `<hr class="sideBracket">`;
+        document.getElementById("third").innerHTML =`<hr class="sideBracket">`+ getDate1(getEvents(events, 3)) + " - " + getText1(getEvents(events, 3))+ `<hr class="sideBracket">`;
         updateWeatherData();
+        console.Log("updated")
         //("clicked")
     }
     function m2(){
@@ -622,13 +627,13 @@ setInterval(main, 500);
 setInterval(updateWeatherData, 900000); //15mins
 main();
 updateWeatherData();
-    day = new Date().getDay();
-    day1 = dayCalc(day);
-    month = new Date().getMonth() + 1;
-    month1 = monthCalc(month);
-    dateM = new Date().getDate();
-    year = new Date().getFullYear();
-    if (currentState=="m1"){
-        dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
-        document.getElementById("mainDate").innerHTML = dateStr;
-    };
+day = new Date().getDay();
+day1 = dayCalc(day);
+month = new Date().getMonth() + 1;
+month1 = monthCalc(month);
+dateM = new Date().getDate();
+year = new Date().getFullYear();
+if (currentState=="m1"){
+    dateStr = ("~"+day1+", "+dateM+" "+month1+" "+year+"~")
+    document.getElementById("mainDate").innerHTML = dateStr;
+};
