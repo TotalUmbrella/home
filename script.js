@@ -1,10 +1,16 @@
+    class Event123 {
+    constructor(date, text, type){
+        this.date = date;
+        this.text = text;
+        this.type = type;
+    }
+}
 time = 0;
 notes = "";
 
 //RUN ON START
 index1 = 0;
 currentState = "m1";
-
 let events = [
     [120,"a"],
     [801,"b"],
@@ -441,7 +447,12 @@ async function updateWeatherData(){
         document.getElementById("m2").onmouseup=(() =>{
             document.getElementById("m2").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
-        document.getElementById("content").innerHTML = ``
+        document.getElementById("content").innerHTML = `
+            <div class="weatherPopup" id="overlay">
+
+            </div>
+        `
+        document.getElementById("overlay").style.display = "block";
         //("clicked")
     }
     function m3(){

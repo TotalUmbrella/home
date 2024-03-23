@@ -1,0 +1,23 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TotalUmbrella/home.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TotalUmbrella/home/issues"
+  },
+  "homepage": "https://github.com/TotalUmbrella/home#readme",
+  "dependencies": {
+    "firebase": "^10.9.0"
+  }
+}

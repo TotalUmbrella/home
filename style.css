@@ -342,3 +342,16 @@
   width: 70%;
   opacity: 0.6;
 }
+
+.weatherPopup {
+  height: 80%;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  left: 10%;
+  top: 10%;
+}
