@@ -359,7 +359,7 @@ async function updateWeatherData(){
 
         document.getElementById("m7").style.backgroundColor = "rgba(72, 92, 96, 0.261)";
 
-        document.getElementById("m1").onmouseup=(() =>{
+        document.onmouseup=(() =>{
             document.getElementById("m1").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         //neutral
@@ -444,12 +444,14 @@ async function updateWeatherData(){
 
         document.getElementById("m7").style.backgroundColor = "rgba(72, 92, 96, 0.261)";
 
-        document.getElementById("m2").onmouseup=(() =>{
+        document.onmouseup=(() =>{
             document.getElementById("m2").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = `
             <div class="weatherPopup" id="overlay">
-
+                <div class="closeWindow">
+                    X
+                </div>
             </div>
         `
         document.getElementById("overlay").style.display = "block";
@@ -472,7 +474,7 @@ async function updateWeatherData(){
 
         document.getElementById("m7").style.backgroundColor = "rgba(72, 92, 96, 0.261)";
 
-        document.getElementById("m3").onmouseup=(() =>{
+        document.onmouseup=(() =>{
             document.getElementById("m3").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
@@ -494,7 +496,7 @@ async function updateWeatherData(){
 
         document.getElementById("m7").style.backgroundColor = "rgba(72, 92, 96, 0.261)";
 
-        document.getElementById("m4").onmouseup=(() =>{
+        document.onmouseup=(() =>{
             document.getElementById("m4").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
@@ -516,7 +518,7 @@ async function updateWeatherData(){
 
         document.getElementById("m7").style.backgroundColor = "rgba(72, 92, 96, 0.261)";
 
-        document.getElementById("m5").onmouseup=(() =>{
+        document.onmouseup=(() =>{
             document.getElementById("m5").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
@@ -539,7 +541,7 @@ async function updateWeatherData(){
 
         document.getElementById("m7").style.backgroundColor = "rgba(72, 92, 96, 0.261)";
 
-        document.getElementById("m6").onmouseup=(() =>{
+        document.onmouseup=(() =>{
             document.getElementById("m6").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``
@@ -562,7 +564,7 @@ async function updateWeatherData(){
 
         document.getElementById("m2").style.backgroundColor = "rgba(72, 92, 96, 0.261)";
 
-        document.getElementById("m7").onmouseup=(() =>{
+        document.onmouseup=(() =>{
             document.getElementById("m7").style.backgroundColor = "rgba(170, 170, 170, 0.3)";
         })
         document.getElementById("content").innerHTML = ``

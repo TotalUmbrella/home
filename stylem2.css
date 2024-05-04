@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.weatherPopup {
+    height: 80%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    left: 10%;
+    top: 10%;
+    animation: fadeIn 1s;
+}
+.closeWindow {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.175);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Encode Sans Expanded", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    transition: 0.3s;
+}
+.closeWindow:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
